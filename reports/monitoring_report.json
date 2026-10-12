@@ -1,5 +1,5 @@
 {
-    "timestamp_utc": "2026-10-12T12:40:06.349189+00:00",
+    "timestamp_utc": "2026-10-12T13:05:05.761934+00:00",
     "overall_status": "healthy",
     "system": {
         "hostname": "LAPTOP-8054CCKF",
@@ -7,11 +7,11 @@
         "cpu_usage_percent": 0.0,
         "memory_usage_percent": 13.7,
         "memory_total_mb": 7773.09,
-        "memory_available_mb": 6705.27,
+        "memory_available_mb": 6706.41,
         "disk_usage_percent": 0.5,
         "disk_total_gb": 1006.85,
         "disk_free_gb": 951.16,
-        "uptime_seconds": 11888
+        "uptime_seconds": 13324
     },
     "network": {
         "connectivity": {
@@ -25,7 +25,7 @@
             "hostname": "google.com",
             "resolved_ips": [
                 "142.251.220.110",
-                "2404:6800:4007:810::200e"
+                "2404:6800:4009:826::200e"
             ]
         },
         "https": {
