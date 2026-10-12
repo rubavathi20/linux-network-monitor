@@ -1,34 +1,37 @@
 {
-    "timestamp_utc": "2026-10-12T12:20:28.188940+00:00",
-    "overall_status": "critical",
+    "timestamp_utc": "2026-10-12T12:40:06.349189+00:00",
+    "overall_status": "healthy",
     "system": {
         "hostname": "LAPTOP-8054CCKF",
         "operating_system": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
-        "cpu_usage_percent": 0.2,
+        "cpu_usage_percent": 0.0,
         "memory_usage_percent": 13.7,
         "memory_total_mb": 7773.09,
-        "memory_available_mb": 6709.32,
+        "memory_available_mb": 6705.27,
         "disk_usage_percent": 0.5,
         "disk_total_gb": 1006.85,
-        "disk_free_gb": 951.18,
-        "uptime_seconds": 10689
+        "disk_free_gb": 951.16,
+        "uptime_seconds": 11888
     },
     "network": {
         "connectivity": {
-            "status": "failed",
+            "status": "healthy",
             "host": "1.1.1.1",
-            "packet_loss_percent": 100.0,
-            "message": "No successful ping response"
+            "packet_loss_percent": 0.0,
+            "message": "Ping completed"
         },
         "dns": {
-            "status": "failed",
+            "status": "healthy",
             "hostname": "google.com",
-            "message": "[Errno -3] Temporary failure in name resolution"
+            "resolved_ips": [
+                "142.251.220.110",
+                "2404:6800:4007:810::200e"
+            ]
         },
         "https": {
-            "status": "failed",
+            "status": "healthy",
             "url": "https://example.com",
-            "message": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+            "http_status": 200
         },
         "listening_tcp_ports": {
             "status": "healthy",
@@ -65,9 +68,5 @@
             ]
         }
     },
-    "alerts": [
-        "CONNECTIVITY check: No successful ping response",
-        "DNS check: [Errno -3] Temporary failure in name resolution",
-        "HTTPS check: <urlopen error [Errno -3] Temporary failure in name resolution>"
-    ]
+    "alerts": []
 }

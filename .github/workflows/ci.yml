@@ -34,4 +34,6 @@ jobs:
           python -m py_compile app/monitor.py
           python -m py_compile app/alerts.py
           python -m py_compile app/troubleshoot.py
-
+       
+      - name: Run automated tests
+        run: python -m pytest -v    

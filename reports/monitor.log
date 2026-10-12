@@ -78,3 +78,43 @@ DNS: failed
 HTTPS: failed
 Alerts: ['CONNECTIVITY check: No successful ping response', 'DNS check: [Errno -3] Temporary failure in name resolution', 'HTTPS check: <urlopen error [Errno -3] Temporary failure in name resolution>']
 Report saved to: /home/rubar/linux-network-monitor/reports/monitoring_report.json
+Starting Linux Network Monitoring Engine...
+Overall status: healthy
+CPU usage: 0.5 %
+Memory usage: 13.7 %
+Disk usage: 0.5 %
+Connectivity: healthy
+DNS: healthy
+HTTPS: healthy
+Alerts: []
+Report saved to: /home/rubar/linux-network-monitor/reports/monitoring_report.json
+Starting Linux Network Monitoring Engine...
+Overall status: critical
+CPU usage: 0.1 %
+Memory usage: 13.7 %
+Disk usage: 0.5 %
+Connectivity: failed
+DNS: failed
+HTTPS: failed
+Alerts: ['CONNECTIVITY check: No successful ping response', 'DNS check: [Errno -3] Temporary failure in name resolution', 'HTTPS check: <urlopen error [Errno -3] Temporary failure in name resolution>']
+Report saved to: /home/rubar/linux-network-monitor/reports/monitoring_report.json
+Starting Linux Network Monitoring Engine...
+Overall status: healthy
+CPU usage: 0.2 %
+Memory usage: 13.7 %
+Disk usage: 0.5 %
+Connectivity: healthy
+DNS: healthy
+HTTPS: healthy
+Alerts: []
+Report saved to: /home/rubar/linux-network-monitor/reports/monitoring_report.json
+Starting Linux Network Monitoring Engine...
+Overall status: healthy
+CPU usage: 0.0 %
+Memory usage: 13.7 %
+Disk usage: 0.5 %
+Connectivity: healthy
+DNS: healthy
+HTTPS: healthy
+Alerts: []
+Report saved to: /home/rubar/linux-network-monitor/reports/monitoring_report.json
