@@ -1,37 +1,34 @@
 {
-    "timestamp_utc": "2026-10-12T12:10:06.648019+00:00",
-    "overall_status": "healthy",
+    "timestamp_utc": "2026-10-12T12:20:28.188940+00:00",
+    "overall_status": "critical",
     "system": {
         "hostname": "LAPTOP-8054CCKF",
         "operating_system": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
         "cpu_usage_percent": 0.2,
         "memory_usage_percent": 13.7,
         "memory_total_mb": 7773.09,
-        "memory_available_mb": 6707.78,
+        "memory_available_mb": 6709.32,
         "disk_usage_percent": 0.5,
         "disk_total_gb": 1006.85,
         "disk_free_gb": 951.18,
-        "uptime_seconds": 10088
+        "uptime_seconds": 10689
     },
     "network": {
         "connectivity": {
-            "status": "healthy",
+            "status": "failed",
             "host": "1.1.1.1",
-            "packet_loss_percent": 0.0,
-            "message": "Ping completed"
+            "packet_loss_percent": 100.0,
+            "message": "No successful ping response"
         },
         "dns": {
-            "status": "healthy",
+            "status": "failed",
             "hostname": "google.com",
-            "resolved_ips": [
-                "142.251.220.110",
-                "2404:6800:4007:833::200e"
-            ]
+            "message": "[Errno -3] Temporary failure in name resolution"
         },
         "https": {
-            "status": "healthy",
+            "status": "failed",
             "url": "https://example.com",
-            "http_status": 200
+            "message": "<urlopen error [Errno -3] Temporary failure in name resolution>"
         },
         "listening_tcp_ports": {
             "status": "healthy",
@@ -68,5 +65,9 @@
             ]
         }
     },
-    "alerts": []
+    "alerts": [
+        "CONNECTIVITY check: No successful ping response",
+        "DNS check: [Errno -3] Temporary failure in name resolution",
+        "HTTPS check: <urlopen error [Errno -3] Temporary failure in name resolution>"
+    ]
 }
