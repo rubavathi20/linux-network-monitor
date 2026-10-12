@@ -1,0 +1,43 @@
+==========================================
+ AUTOMATED NETWORK TROUBLESHOOTING REPORT
+==========================================
+Date: Mon Oct 12 14:54:50 IST 2026
+Hostname: LAPTOP-8054CCKF
+
+---- 1. Network Interface Check ----
+1: lo    inet 10.255.255.254/32 brd 10.255.255.254 scope global lo\       valid_lft forever preferred_lft forever
+2: eth0    inet 172.27.222.254/20 brd 172.27.223.255 scope global eth0\       valid_lft forever preferred_lft forever
+RESULT: An active interface has an IPv4 address.
+
+---- 2. Internet Connectivity Check ----
+RESULT: External IP connectivity passed.
+
+---- 3. DNS Check ----
+RESULT: DNS/name resolution passed.
+172.217.161.78  STREAM google.com
+172.217.161.78  DGRAM  
+172.217.161.78  RAW    
+
+---- 4. HTTPS Check ----
+RESULT: HTTPS request succeeded.
+
+---- 5. Listening TCP Ports ----
+State  Recv-Q Send-Q  Local Address:Port  Peer Address:Port
+LISTEN 0      1000   10.255.255.254:53         0.0.0.0:*   
+LISTEN 0      70          127.0.0.1:33060      0.0.0.0:*   
+LISTEN 0      4096    127.0.0.53%lo:53         0.0.0.0:*   
+LISTEN 0      4096          0.0.0.0:22         0.0.0.0:*   
+LISTEN 0      151         127.0.0.1:3306       0.0.0.0:*   
+LISTEN 0      4096       127.0.0.54:53         0.0.0.0:*   
+LISTEN 0      4096             [::]:22            [::]:*   
+
+---- 6. Common Port Checks ----
+Port 22: LISTENING
+Port 80: NOT LISTENING
+Port 443: NOT LISTENING
+Port 5000: NOT LISTENING
+
+==========================================
+ TROUBLESHOOTING COMPLETED
+Report saved to: /home/rubar/linux-network-monitor/reports/troubleshooting_20261012_145450.txt
+==========================================

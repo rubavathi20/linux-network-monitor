@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1120">
+    <title>NetPulse | Network Operations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="/">
+                <span class="brand-icon">N</span>
+                <span>
+                    <strong>NetPulse</strong>
+                    <small>NETWORK OPERATIONS</small>
+                </span>
+            </a>
+
+            <div class="nav-label">WORKSPACE</div>
+            <nav class="navigation">
+                <a class="nav-link active" href="#overview"><span>◫</span> Overview</a>
+                <a class="nav-link" href="#network"><span>⌁</span> Network health</a>
+                <a class="nav-link" href="#ports"><span>⇄</span> TCP ports</a>
+                <a class="nav-link" href="#alerts"><span>⚑</span> Alerts</a>
+                <a class="nav-link" href="#diagnostics"><span>⌘</span> Diagnostics</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="connection-indicator">
+                    <span class="live-dot"></span>
+                    <div>
+                        <strong>Local monitor</strong>
+                        <small>Dashboard session</small>
+                    </div>
+                </div>
+                <div class="sidebar-footer">LINUX MONITORING TOOL<br>NetPulse · v1.0</div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="mobile-brand">
+                    <span class="brand-icon">N</span>
+                    <strong>NetPulse</strong>
+                </div>
+                <div class="breadcrumb">Workspace <span>/</span> <strong>Overview</strong></div>
+                <div class="topbar-actions">
+                    <span class="live-label"><span class="live-dot"></span> MONITORING</span>
+                    <button id="refreshBtn" class="button button-secondary" type="button">
+                        <span class="button-icon">↻</span> Refresh metrics
+                    </button>
+                </div>
+            </header>
+
+            <section id="overview" class="page-heading">
+                <div>
+                    <p class="eyebrow">INFRASTRUCTURE / LINUX</p>
+                    <h1>System overview</h1>
+                    <p class="page-subtitle">Monitor system resources, network connectivity, and listening ports.</p>
+                </div>
+                <div class="overall-status" id="overallStatus">
+                    <span class="status-dot"></span>
+                    <span id="overallStatusText">Loading status...</span>
+                </div>
+            </section>
+
+            <section class="host-strip panel">
+                <div class="host-avatar">⌘</div>
+                <div class="host-details">
+                    <span class="muted-label">MONITORED HOST</span>
+                    <strong id="hostname">Loading host...</strong>
+                    <small id="osValue">Operating system unavailable</small>
+                </div>
+                <div class="host-meta">
+                    <span class="muted-label">LAST UPDATED</span>
+                    <strong id="lastChecked">Waiting for first report</strong>
+                </div>
+            </section>
+
+            <section class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <h2>Resource utilization</h2>
+                        <p>Current system resource usage</p>
+                    </div>
+                    <span class="section-tag">SYSTEM METRICS</span>
+                </div>
+
+                <div class="metrics-grid">
+                    <article class="metric-card panel">
+                        <div class="metric-top">
+                            <span class="metric-icon cpu-icon">CPU</span>
+                            <span class="metric-caption">PROCESSOR</span>
+                        </div>
+                        <div class="metric-value"><span id="cpuValue">--</span><span class="metric-unit">%</span></div>
+                        <div class="progress-track"><div id="cpuBar" class="progress-fill cpu-fill"></div></div>
+                        <div class="metric-bottom"><span>CPU utilization</span><strong id="cpuState">Waiting</strong></div>
+                    </article>
+
+                    <article class="metric-card panel">
+                        <div class="metric-top">
+                            <span class="metric-icon memory-icon">RAM</span>
+                            <span class="metric-caption">MEMORY</span>
+                        </div>
+                        <div class="metric-value"><span id="memoryValue">--</span><span class="metric-unit">%</span></div>
+                        <div class="progress-track"><div id="memoryBar" class="progress-fill memory-fill"></div></div>
+                        <div class="metric-bottom"><span>Memory utilization</span><strong id="memoryState">Waiting</strong></div>
+                    </article>
+
+                    <article class="metric-card panel">
+                        <div class="metric-top">
+                            <span class="metric-icon disk-icon">DSK</span>
+                            <span class="metric-caption">STORAGE</span>
+                        </div>
+                        <div class="metric-value"><span id="diskValue">--</span><span class="metric-unit">%</span></div>
+                        <div class="progress-track"><div id="diskBar" class="progress-fill disk-fill"></div></div>
+                        <div class="metric-bottom"><span>Disk utilization</span><strong id="diskState">Waiting</strong></div>
+                    </article>
+
+                    <article class="metric-card panel">
+                        <div class="metric-top">
+                            <span class="metric-icon uptime-icon">UP</span>
+                            <span class="metric-caption">AVAILABILITY</span>
+                        </div>
+                        <div id="uptimeValue" class="uptime-value">--</div>
+                        <div class="uptime-description">System uptime</div>
+                        <div class="metric-bottom"><span>Host availability</span><strong id="uptimeState">Unknown</strong></div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="network" class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <h2>Network health</h2>
+                        <p>Connectivity and service reachability checks</p>
+                    </div>
+                    <span class="section-tag">NETWORK CHECKS</span>
+                </div>
+
+                <div class="network-grid">
+                    <article class="health-card panel">
+                        <div class="health-card-top">
+                            <span class="health-symbol">⌁</span>
+                            <span id="connectivityBadge" class="status-pill status-unknown">UNKNOWN</span>
+                        </div>
+                        <h3>Internet connectivity</h3>
+                        <p id="connectivityStatus">Waiting for connectivity report...</p>
+                        <div class="health-card-bottom"><span>Packet loss</span><strong id="packetLoss">--</strong></div>
+                    </article>
+
+                    <article class="health-card panel">
+                        <div class="health-card-top">
+                            <span class="health-symbol">◇</span>
+                            <span id="dnsBadge" class="status-pill status-unknown">UNKNOWN</span>
+                        </div>
+                        <h3>DNS resolution</h3>
+                        <p id="dnsStatus">Waiting for DNS report...</p>
+                        <div class="health-card-bottom"><span>Resolver check</span><strong id="dnsDetail">Pending</strong></div>
+                    </article>
+
+                    <article class="health-card panel">
+                        <div class="health-card-top">
+                            <span class="health-symbol">↗</span>
+                            <span id="httpsBadge" class="status-pill status-unknown">UNKNOWN</span>
+                        </div>
+                        <h3>HTTPS reachability</h3>
+                        <p id="httpsStatus">Waiting for HTTPS report...</p>
+                        <div class="health-card-bottom"><span>Secure endpoint</span><strong id="httpsDetail">Pending</strong></div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="lower-grid">
+                <section id="ports" class="section-block">
+                    <div class="section-heading">
+                        <div>
+                            <h2>Listening TCP ports</h2>
+                            <p>Services detected on this host</p>
+                        </div>
+                        <span id="portCount" class="count-badge">0 ports</span>
+                    </div>
+                    <div class="panel table-panel">
+                        <div class="table-scroll">
+                            <table>
+                                <thead>
+                                    <tr><th>PORT</th><th>ADDRESS</th><th>SERVICE</th><th>STATE</th></tr>
+                                </thead>
+                                <tbody id="portsTable">
+                                    <tr><td colspan="4" class="empty-state">Loading listening ports...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="alerts" class="section-block">
+                    <div class="section-heading">
+                        <div>
+                            <h2>System alerts</h2>
+                            <p>Issues reported by the monitor</p>
+                        </div>
+                        <span id="alertCount" class="count-badge">0 alerts</span>
+                    </div>
+                    <div id="alertsList" class="alerts-panel panel">
+                        <div class="empty-state">Loading alerts...</div>
+                    </div>
+                </section>
+            </section>
+
+            <section id="diagnostics" class="section-block diagnostics-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>Network diagnostics</h2>
+                        <p>Run checks and inspect troubleshooting output</p>
+                    </div>
+                    <button id="troubleshootBtn" class="button button-primary" type="button">
+                        <span class="button-icon">▶</span> Run troubleshooting
+                    </button>
+                </div>
+
+                <div class="terminal panel">
+                    <div class="terminal-header">
+                        <div class="terminal-lights"><i></i><i></i><i></i></div>
+                        <span>NETPULSE / DIAGNOSTIC CONSOLE</span>
+                        <span id="terminalState" class="terminal-state">IDLE</span>
+                    </div>
+                    <pre id="troubleshootResults" aria-live="polite">Welcome to NetPulse diagnostics.
+Select "Run troubleshooting" to check your network.
+Results will appear here.</pre>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <span>NetPulse <span class="footer-separator">•</span> Linux Network Monitoring</span>
+                <span>Local monitoring dashboard</span>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
+

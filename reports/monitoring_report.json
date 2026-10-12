@@ -1,0 +1,72 @@
+{
+    "timestamp_utc": "2026-10-12T12:00:09.274522+00:00",
+    "overall_status": "healthy",
+    "system": {
+        "hostname": "LAPTOP-8054CCKF",
+        "operating_system": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+        "cpu_usage_percent": 0.0,
+        "memory_usage_percent": 13.8,
+        "memory_total_mb": 7773.09,
+        "memory_available_mb": 6703.3,
+        "disk_usage_percent": 0.5,
+        "disk_total_gb": 1006.85,
+        "disk_free_gb": 951.18,
+        "uptime_seconds": 9488
+    },
+    "network": {
+        "connectivity": {
+            "status": "healthy",
+            "host": "1.1.1.1",
+            "packet_loss_percent": 75.0,
+            "message": "Ping completed"
+        },
+        "dns": {
+            "status": "healthy",
+            "hostname": "google.com",
+            "resolved_ips": [
+                "172.217.161.78",
+                "2404:6800:4007:831::200e"
+            ]
+        },
+        "https": {
+            "status": "healthy",
+            "url": "https://example.com",
+            "http_status": 200
+        },
+        "listening_tcp_ports": {
+            "status": "healthy",
+            "count": 7,
+            "ports": [
+                {
+                    "address": "10.255.255.254:53",
+                    "port": 53
+                },
+                {
+                    "address": "127.0.0.1:33060",
+                    "port": 33060
+                },
+                {
+                    "address": "127.0.0.53%lo:53",
+                    "port": 53
+                },
+                {
+                    "address": "0.0.0.0:22",
+                    "port": 22
+                },
+                {
+                    "address": "127.0.0.1:3306",
+                    "port": 3306
+                },
+                {
+                    "address": "127.0.0.54:53",
+                    "port": 53
+                },
+                {
+                    "address": "[::]:22",
+                    "port": 22
+                }
+            ]
+        }
+    },
+    "alerts": []
+}
