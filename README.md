@@ -1,56 +1,116 @@
+
 # Linux Network Monitoring Dashboard
 
-A Python and Flask-based network monitoring tool that checks network connectivity, DNS resolution, HTTPS availability, system resource usage, and listening TCP ports on Linux.
+A Linux-based network monitoring and troubleshooting platform built with Python and Flask. It provides a web dashboard for viewing network health, system metrics, monitoring reports, and troubleshooting results.
 
 ## Features
 
 - Network connectivity monitoring
 - DNS resolution checks
-- HTTPS endpoint monitoring
-- CPU, memory, disk, and uptime metrics
-- Listening TCP port inspection
-- Web dashboard built with Flask
-- JSON monitoring reports
-- Automated alert detection
-- Cron-based scheduled monitoring
+- HTTPS availability checks
+- System resource monitoring
+- Listening TCP port checks
+- Health-check API
+- Monitoring reports and alerts
+- Automated troubleshooting
+- Scheduled monitoring using cron
+- Automated tests with pytest
+- GitHub Actions CI workflow
 
-## Technologies
+## Technology Stack
 
+- Linux / Ubuntu
 - Python
 - Flask
-- Linux / Ubuntu
 - Bash
-- Cron
+- pytest
 - Git and GitHub
-- HTML, CSS, and JavaScript
+- GitHub Actions
+- Cron
+- Docker (containerization verification pending)
 
-## Run locally
+## Project Structure
+
+```text
+linux-network-monitor/
+├── app/
+│   ├── app.py
+│   ├── monitor.py
+│   ├── alerts.py
+│   ├── troubleshoot.py
+│   ├── requirements.txt
+│   ├── templates/
+│   └── static/
+├── scripts/
+├── reports/
+├── logs/
+├── tests/
+│   └── test_app.py
+├── .github/
+│   └── workflows/
+├── Dockerfile
+└── README.md
+```
+
+## Installation
+
+Clone the repository:
 
 ```bash
 git clone https://github.com/rubavathi20/linux-network-monitor.git
 cd linux-network-monitor
+```
 
+Create and activate a virtual environment:
+
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+```
 
+Install dependencies:
+
+```bash
+pip install -r app/requirements.txt
+```
+
+## Run the Dashboard
+
+```bash
 python app/app.py
 ```
 
-Open `http://localhost:5000` in your browser.
+Open the dashboard at:
 
-## Run a monitoring check
+http://localhost:5000
+
+## API Endpoints
+
+| Endpoint | Method | Purpose |
+|---|---|---|
+| `/` | GET | Dashboard |
+| `/health` | GET | Application health |
+| `/api/report` | GET | Current monitoring report |
+| `/api/refresh` | POST | Refresh monitoring report |
+| `/api/troubleshoot` | POST | Run troubleshooting |
+
+## Run Automated Tests
 
 ```bash
-python app/monitor.py
+pytest -v
 ```
 
-## Run alert checks
+The current test suite contains six Flask application tests. GitHub Actions is configured to run automated checks.
 
-```bash
-python app/alerts.py
-```
+## Future Improvements
 
-## Project purpose
+- Verify Docker image build and container execution
+- Add more unit tests for monitoring functions
+- Improve monitoring visualizations and alert handling
 
-This project demonstrates Linux administration, network troubleshooting, monitoring automation, Python scripting, and basic operational alerting skills relevant to DevOps and support engineering.
+## Author
+
+Rubavathi
+
+GitHub: https://github.com/rubavathi20
+
