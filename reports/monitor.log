@@ -38,3 +38,23 @@ DNS: healthy
 HTTPS: healthy
 Alerts: []
 Report saved to: /home/rubar/linux-network-monitor/reports/monitoring_report.json
+Starting Linux Network Monitoring Engine...
+Overall status: healthy
+CPU usage: 0.1 %
+Memory usage: 13.7 %
+Disk usage: 0.5 %
+Connectivity: healthy
+DNS: healthy
+HTTPS: healthy
+Alerts: []
+Report saved to: /home/rubar/linux-network-monitor/reports/monitoring_report.json
+Starting Linux Network Monitoring Engine...
+Overall status: healthy
+CPU usage: 0.2 %
+Memory usage: 13.7 %
+Disk usage: 0.5 %
+Connectivity: healthy
+DNS: healthy
+HTTPS: healthy
+Alerts: []
+Report saved to: /home/rubar/linux-network-monitor/reports/monitoring_report.json
